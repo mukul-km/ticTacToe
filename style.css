@@ -1,0 +1,292 @@
+:root {
+  --main-bgcolor: hsl(186, 100%, 10%);
+  --box-bgcolor: hsl(188, 60%, 20%);
+  --btn-color: hsl(190, 40%, 35%);
+
+  --btn-color-hover: hsl(190, 35%, 30%);
+
+  --text-color: hsl(164, 93%, 94%);
+
+  --first: hsl(54, 100%, 50%);
+  --first-active: hsl(54, 50%, 35%);
+  --second: hsl(87, 100%, 50%);
+  --second-active: hsl(87, 50%, 35%);
+  --third: hsl(197, 23%, 70%);
+}
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+textarea {
+  white-space: revert;
+}
+
+html {
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100dvh;
+  background: var(--main-bgcolor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  /* Select Box Section */
+  & .select-box {
+    border-radius: 10px;
+    background: var(--box-bgcolor);
+    box-shadow: 2px 2px 6px black;
+    color: var(--text-color);
+    padding: 25px 20px;
+    max-width: 290px;
+    position: absolute;
+    transition: all 0.3s ease;
+
+    & .title {
+      text-align: center;
+      font-size: 1.7rem;
+      font-weight: bold;
+      word-wrap: break-word;
+    }
+
+    & .options {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      & button {
+        width: 45%;
+        padding: 12px 0;
+        border-radius: 5px;
+        margin-top: 20px;
+        border: none;
+        background: var(--btn-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.2s ease;
+
+        &:active {
+          background-color: var(--btn-color-hover);
+          transform: scale(0.9);
+        }
+
+        & img {
+          width: 40px;
+        }
+      }
+    }
+  }
+
+  /* Play Board Section */
+  & .play-board {
+    transition: all 0.3s ease;
+    position: absolute;
+    & .details {
+      margin: 0 5px;
+      display: flex;
+      justify-content: space-between;
+
+      & .players {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 76%;
+        padding: 7px;
+        background: var(--box-bgcolor);
+        box-shadow: 2px 2px 6px black;
+        border-radius: 5px;
+
+        & span {
+          width: 49%;
+          font-size: 1.2rem;
+          font-weight: bold;
+          padding: 12px 0;
+          border-radius: 5px;
+          text-align: center;
+
+          &:first-child {
+            color: var(--first);
+          }
+          &:last-child {
+            color: var(--second);
+          }
+
+          &:first-child.active {
+            color: var(--box-bgcolor);
+            background: var(--first);
+            box-shadow: 1px 1px 4px black;
+          }
+          &:last-child.active {
+            color: var(--box-bgcolor);
+            background: var(--second);
+
+            box-shadow: 1px 1px 4px black;
+          }
+        }
+      }
+
+      & .restart-btn {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 5px;
+        background: var(--box-bgcolor);
+        box-shadow: 2px 2px 6px black;
+        transition: transform 0.2s ease;
+
+        &:active {
+          background-color: var(--btn-color-hover);
+          transform: scale(0.9);
+        }
+
+        & img {
+          width: 24px;
+        }
+      }
+    }
+
+    & .play-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      width: 300px;
+      margin: 20px 0;
+
+      & div {
+        height: 90px;
+        width: 90px;
+        border-radius: 5px;
+        background: var(--box-bgcolor);
+        box-shadow: 2px 2px 6px black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    & .score-board {
+      display: flex;
+      justify-content: space-around;
+      gap: 10px;
+      margin: 5px;
+      color: var(--main-bgcolor);
+
+      & .score-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        width: 33%;
+        padding: 8px;
+        border-radius: 5px;
+        box-shadow: 2px 2px 6px black;
+
+        & div {
+          font-size: 0.9rem;
+          font-weight: bold;
+        }
+
+        & .score {
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+
+        &:nth-child(1) {
+          background: var(--first);
+        }
+
+        &:nth-child(2) {
+          background: var(--second);
+        }
+      }
+    }
+  }
+
+  & .result-box {
+    transition: all 0.3s ease;
+    width: 100%;
+    padding: 30px 0;
+    position: absolute;
+    background: var(--box-bgcolor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+
+    box-shadow: 0px 5px 100px 0px rgba(0, 0, 0, 0.8),
+      0px 5px 100px rgba(0, 0, 0, 0.8);
+
+    & .result-text {
+      max-width: 300px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      & img {
+        width: 35px;
+      }
+    }
+
+    & .navigation {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+
+      & button {
+        padding: 12px 15px;
+        border: none;
+        border-radius: 5px;
+        color: var(--text-color);
+        background: var(--btn-color);
+        font-size: 1.1rem;
+        font-weight: bold;
+        transition: transform 0.2s ease;
+
+        &:active {
+          background-color: var(--btn-color-hover);
+          transform: scale(0.9);
+        }
+      }
+    }
+  }
+}
+
+.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.9);
+}
+
+.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+}

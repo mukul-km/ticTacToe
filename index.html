@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe Game</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./main.js" defer></script>
+  </head>
+  <body>
+    <!-- container -->
+    <section class="container">
+      <!-- Select Box Section -->
+      <div class="select-box">
+        <!-- Select Box Title -->
+        <div class="title">Select which you want to be?</div>
+        <!-- Select Box Options -->
+        <div class="options">
+          <!-- Option X -->
+          <button onclick="startGame('x')">
+            <img src="./img/icon-x.svg" alt="" />
+          </button>
+          <!-- Option O -->
+          <button onclick="startGame('o')">
+            <img src="./img/icon-o.svg" alt="" />
+          </button>
+        </div>
+      </div>
+
+      <!-- Play Board Section -->
+      <div class="play-board hide">
+        <div class="details">
+          <div class="players">
+            <span class="playerO">O's Turn</span>
+            <span class="playerX">X's Turn</span>
+          </div>
+          <button class="restart-btn" onclick="restartGame()">
+            <img src="./img/icon-restart.svg" alt="icon-restart" />
+          </button>
+        </div>
+
+        <div class="play-area">
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+          <div class="box"></div>
+        </div>
+
+        <div class="score-board">
+          <div class="score-card">
+            <div>O's Win</div>
+            <div class="score">0</div>
+          </div>
+          <div class="score-card">
+            <div>X's Win</div>
+            <div class="score">0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-box hide">
+        <div class="result-text"></div>
+        <div class="navigation">
+          <button onclick="quitGame()">Quit</button>
+          <button onclick="nextRound()">Next Round</button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
